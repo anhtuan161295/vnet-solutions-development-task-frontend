@@ -1,0 +1,27 @@
+<p>Sales Results Data Size : {{ salesResults.length }}</p>
+
+<table mat-table [dataSource]="salesResults" *ngIf="salesResults.length > 0">
+    <ng-container matColumnDef="product-name">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="store-name">
+        <th mat-header-cell *matHeaderCellDef> Store Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.storeName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total-sales-units">
+        <th mat-header-cell *matHeaderCellDef> Total Sales Units </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalSalesUnits}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total-sales-revenue">
+        <th mat-header-cell *matHeaderCellDef> Total Sales Revenue </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalSalesRevenue}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+</table>
